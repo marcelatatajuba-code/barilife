@@ -3,7 +3,7 @@
    Estrategia: cache-first para os arquivos do app (funciona 100% offline),
    com atualizacao em segundo plano quando ha rede.
    ========================================================================== */
-var CACHE = 'barilife-v5';
+var CACHE = 'barilife-v7';
 
 var ARQUIVOS = [
   './',
@@ -15,6 +15,9 @@ var ARQUIVOS = [
   './assets/js/mapa.js',
   './assets/js/app.js',
   './assets/img/sbcbm.png',
+  './assets/img/faixa-sbcbm.png',
+  './assets/fontes/jakarta-latin.woff2',
+  './assets/fontes/jakarta-latin-ext.woff2',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/apple-touch-icon.png'

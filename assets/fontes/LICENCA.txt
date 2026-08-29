@@ -1,0 +1,14 @@
+Plus Jakarta Sans
+Copyright 2020 The Plus Jakarta Sans Project Authors
+(https://github.com/tokotype/PlusJakartaSans)
+
+Licenciada sob a SIL Open Font License, Version 1.1.
+Texto integral da licenca: https://openfontlicense.org
+
+Arquivos incluidos (subconjuntos latin e latin-ext, fonte variavel,
+obtidos do Google Fonts):
+  jakarta-latin.woff2
+  jakarta-latin-ext.woff2
+
+Usada nesta replica academica do Barilife apenas para aproximar a
+tipografia do aplicativo original. Nao e a fonte original do Barilife.

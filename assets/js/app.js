@@ -221,8 +221,8 @@
     inicio:       { aba: true,  semTopo: true },
     midias:       { aba: true,  titulo: 'Mídias', acaoIcone: 'i-filtro', acaoFn: function () { alternarAbasMidia(); } },
     locais:       { aba: true,  titulo: 'Locais', acaoIcone: 'i-ajustes', acaoFn: function () { abrirFiltroLocais(); } },
-    agenda:       { aba: true,  titulo: 'Agenda', acao: '+', acaoFn: function () { formAgenda(); } },
-    menu:         { aba: true,  titulo: 'Menu' },
+    agenda:       { aba: true,  limpa: true, titulo: 'Agenda', acao: '+', acaoFn: function () { formAgenda(); } },
+    menu:         { aba: true,  limpa: true, titulo: 'Menu' },
     carteirinha:  { titulo: 'Carteirinha digital' },
     dados:        { titulo: 'Meus dados' },
     documentos:   { titulo: 'Documentos enviados' },
@@ -393,12 +393,12 @@
      Início
      ========================================================================== */
   var ATALHOS = [
-    { id: 'peso',      rot: 'Meu peso',  icone: 'i-balanca', claro: true },
-    { id: 'chat',      rot: 'Chat',      icone: 'i-balao',   claro: true },
-    { id: 'novidades', rot: 'Novidades', icone: 'i-jornal' },
+    { id: 'peso',      rot: 'Meu peso',  icone: 'i-peso',  claro: true },
+    { id: 'chat',      rot: 'Chat',      icone: 'i-chat2', claro: true },
+    { id: 'novidades', rot: 'Novidades', icone: 'i-jornal2' },
     { id: 'rede',      rot: 'Rede Amiga', icone: 'i-estrela', pino: true },
     { id: 'locais',    rot: 'Perto de você', icone: 'i-locais', tab: true },
-    { id: 'enquetes',  rot: 'Enquetes',  icone: 'i-prancheta', pino: true },
+    { id: 'enquetes',  rot: 'Enquetes',  icone: 'i-prancheta2', pino: true },
     { id: 'coesas',    rot: 'COESAS (Minha Equipe Multidisciplinar)', icone: 'i-equipe', largo: true }
   ];
 
@@ -410,13 +410,13 @@
       '<div class="meio">' + avatarHTML(p) +
         '<div class="dados">' +
           '<div class="k">Paciente</div><div class="v">' + esc(p.nome) + '</div>' +
-          '<div class="k">CPF</div><div class="v" style="margin-bottom:0">' + esc(p.cpf || '—') + '</div>' +
+          '<div class="k">CPF</div><div class="v cpf" style="margin-bottom:0">' + esc(p.cpf || '—') + '</div>' +
         '</div>' +
-        '<button class="lapis" id="res-editar" aria-label="Editar dados">✎</button>' +
+        '<button class="lapis" id="res-editar" aria-label="Editar dados">' +
+        '<svg viewBox="0 0 24 24"><use href="#i-editar"/></svg></button>' +
       '</div>' +
-      '<button class="verlink" id="res-ver">ver carteirinha completa ›</button>' +
-      '<div class="faixa"><span class="sig">SBCBM</span><span class="estrela">★</span>' +
-      '<span class="marca-dagua">SBCBM</span></div>';
+      '<button class="verlink" id="res-ver">ver carteirinha completa<span class="seta">›</span></button>' +
+      '<img class="faixa" src="assets/img/faixa-sbcbm.png" alt="SBCBM — Sociedade Brasileira de Cirurgia Bariátrica e Metabólica">';
 
     $('#res-ver').addEventListener('click', function () { Nav.abrir('carteirinha'); });
     $('#res-editar').addEventListener('click', function () { Nav.abrir('dados'); });
@@ -425,7 +425,7 @@
       var cls = 'bloco ' + (a.claro ? 'claro' : 'azul') + (a.largo ? ' largo' : '');
       return '<button class="' + cls + '" data-atalho="' + a.id + '"' + (a.tab ? ' data-tab="1"' : '') + '>' +
         (a.pino ? '<span class="pino"></span>' : '') +
-        '<span class="cx"><svg viewBox="0 0 24 24"><use href="#' + a.icone + '"/></svg></span>' +
+        '<span class="cx"><svg viewBox="0 0 ' + (a.claro ? '44 44' : '24 24') + '"><use href="#' + a.icone + '"/></svg></span>' +
         '<span class="rot">' + esc(a.rot) + '</span></button>';
     }).join('');
 
