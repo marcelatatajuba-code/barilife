@@ -518,3 +518,13 @@ main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
 .campo .erro-msg{display:none;font-size:12.5px;color:var(--vermelho);font-weight:600;margin-top:6px;}
 .campo.erro .erro-msg{display:block;}
 .campo.erro label{color:var(--vermelho);}
+
+/* ---- aviso de instalar antes de se cadastrar (iOS) --------------------- */
+.instalar-antes{background:var(--ambar-bg);border-radius:var(--r-m);padding:16px 17px;margin-bottom:18px;}
+.instalar-antes h3{display:flex;align-items:center;gap:9px;font-size:15.5px;font-weight:750;
+  color:var(--ambar-tx);margin-bottom:8px;}
+.instalar-antes p{font-size:14px;line-height:1.55;color:var(--ambar-tx);opacity:.92;margin:0 0 10px;}
+.instalar-antes ol{margin:0;padding-left:20px;color:var(--ambar-tx);font-size:14px;line-height:1.7;}
+.instalar-antes ol b{font-weight:750;}
+.instalar-antes .compartilhar-ic{display:inline-grid;place-items:center;width:19px;height:19px;
+  vertical-align:-4px;border:1.6px solid currentColor;border-radius:5px;font-size:11px;line-height:1;}

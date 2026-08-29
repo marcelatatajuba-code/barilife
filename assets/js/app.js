@@ -1415,7 +1415,28 @@
     $('#entrada').scrollTop = 0;
   }
 
+  /* No iOS, o app instalado guarda os dados separados do Safari. Quem se cadastra
+     antes de instalar perde o cadastro ao abrir pela Tela de Início — então o
+     aviso pede para instalar primeiro. */
+  function avisoInstalarAntes() {
+    var alvo = $('#instalar-antes');
+    if (!alvo) return;
+    if (!ehIOS() || instalado()) { alvo.innerHTML = ''; return; }
+    alvo.innerHTML =
+      '<div class="instalar-antes">' +
+        '<h3>📲 Vai usar no iPhone? Instale antes de se cadastrar</h3>' +
+        '<p>O app instalado guarda os dados separados do Safari. Se você se cadastrar aqui e instalar depois, ' +
+        'o cadastro fica para trás e é preciso refazer.</p>' +
+        '<ol>' +
+          '<li>Toque em <b>Compartilhar</b> <span class="compartilhar-ic">↑</span> na barra do Safari</li>' +
+          '<li>Escolha <b>Adicionar à Tela de Início</b></li>' +
+          '<li>Abra o Barilife pelo ícone e faça o cadastro por lá</li>' +
+        '</ol>' +
+      '</div>';
+  }
+
   function montarEntrada() {
+    avisoInstalarAntes();
     $('#f-uf').innerHTML = DB.ufs.map(function (u) { return '<option' + (u === 'SP' ? ' selected' : '') + '>' + u + '</option>'; }).join('');
     $('#f-sexo').innerHTML = DB.sexos.map(function (s) { return '<option>' + esc(s) + '</option>'; }).join('');
     $('#f-cirurgia').innerHTML = DB.tiposCirurgia.map(function (c) { return '<option>' + esc(c) + '</option>'; }).join('');
